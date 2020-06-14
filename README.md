@@ -25,7 +25,7 @@ opencv<br>
 vapoursynth: http://www.vapoursynth.com/doc/installation.html<br>
 numpy: <code>pip install numpy</code><br>
 opencv v.3.4.1 or higher. You do not need opencv build with Qt library.<br>
-Status Bar is present if opencv is compiled with Qt library build though. But at the same time Qt build interferes with arrow key bindings.<br>
+Status Bar is present if opencv is compiled with Qt library though. But at the same time Qt build blocks arrow keybindings. That is why frame step forward and back are not associated with arrow keys to make sure.<br>
 But all sys.stdout are always printed into a tkinter window even if no Qt library is installed with opencv.<br>
 with arrow keys keybindings so that is why keybinding for frame forward move and back does not uses arrows on keyboard.<br><br>
 
