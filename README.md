@@ -47,7 +47,7 @@ Run it by F5, information is printed into a python console or into tkinter conso
 Use with <code>output_window=True</code> to actually see print-outs, because simple <code>print('something')</code> does not work while running a script in vsedit.<br>
 If you keep getting ModuleNotFoundError: No module named 'view' put view.py and output_window.py into your Python's site-packages directory<br>
 You might include line to output your clip, even if not needed for preview: <code>clip.set_output()</code><br>
-If everything fails, you can always use your favourite Python app where you can run your script<br>
+If everything fails, you can always use your other Python app or IDLE where you can run your script<br>
 
 
 <h3>Script examples:</h3>
