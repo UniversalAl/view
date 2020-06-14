@@ -43,18 +43,18 @@ sudo apt install python3-opencv</code></pre>
 Make some Vapoursynth script in your favourite Python console, IDLE or else, give it .py extension.
 Run it by F5, information is printed into a python console or into tkinter console (output_window=True).</p>
 
-<h3>if using within Vapoursynth Editor:</h3>
--Use with output_window=True to actually see print outs, because simple print('something') does not work while running a script in vsedit.<br>
--If you keep getting ModuleNotFoundError: No module named 'view' even if view.py is in PATH<br>
-you can set that path in vapoursynth script:<br>
-<pre><code>import sys
-sys.path.append(r'C:\video\my_scripts') #directory with view.py</code></pre>
+<h3>If using within Vapoursynth Editor:</h3>
+-Use with output_window=True to actually see print-outs, because simple print('something') does not work while running a script in vsedit.<br>
+-If you keep getting ModuleNotFoundError: No module named 'view'<br>
+ put that view.py and output_window.py into your Python's site-packages directory</code></pre>
 -you might include line to output your clip, even if not needed for preview:<br>
-clip.set_output()<br>
+ clip.set_output()<br>
+ -if everything failes, you can always use your favourite Python app where you can run your script
 
 
 
-<h3>script examples:</h3>
+
+<h3>Script examples:</h3>
 <pre><code>#all arguments
 import vapoursynth as vs
 from view import Preview
@@ -66,11 +66,13 @@ Preview(clips=[clip, clip_fixed], frames=[0,2000], delay=20, img_dir=r'F:\images
                            output_window=False, fullscreen=False, play=False, slider=False)</code></pre>
 
 
-<pre><code>#passing crop values back to script
+<pre><code>
+#passing crop values back to script
+#(besides simple copy/paste cropping line that can be done during any crop)
 import vapoursynth as vs
 from view import Preview
 clip = vs.core.lsmas.LibavSMASHSource('source.mp4')
-p = Preview(clip)  #cancel preview window while in desired crop selection
+p = Preview(clip)  #and cancel preview window while in desired crop selection
 cropped_clip = clip.std.CropAbs(width=p.width, height=p.height, left=p.left, top=p.top)
 Preview(cropped_clip)</code></pre>
 
