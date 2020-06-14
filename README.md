@@ -226,8 +226,8 @@ Not sure about Mac at all about correct keybindings, just have set it same as fo
 so it might need corrections, if things do not work,see global DARWIN_KEYMAP and change keybindings apropriatelly.
 Active (selected/focused) opencv  window response to these keys on keyboard:
 
-Keys '1' to '9' to switch between clips to compare them if loading more clips.
-           So there is max 9 clips. But technically, it could be more if keybinding is adjusted.
+Keys '1' to '9' and '0' to switch between clips to compare them if loading more clips.
+           So there is max 10 clips. But technically, it could be more if keybinding is adjusted.
            
 MOUSE LEFT DOUBLECLICK    zooms in 2x, centers on mouse position
 'Z' -      same as above, zooms in 2x as well, again centers on mouse position
