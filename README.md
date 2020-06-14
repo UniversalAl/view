@@ -6,7 +6,7 @@ It is using openCV to put vapoursynth's RGB on screen.
                           str kernel='Point', int mod_x=2, int mod_y=2, bool ignore_subsampling = False,
                           tuple position = (60,60), int preview_width = None, int preview_height = None,
                           bool output_window=False, bool fullscreen=False, bool play=False, bool slider=False ])</code></pre>
-
+<img src="preview_snap_shot.JPG" alt="hi" class="inline"/>
 
 <h3>Basic usage:</h3>
 <pre><code>import vapoursynth as vs
