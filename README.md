@@ -44,14 +44,10 @@ Make some Vapoursynth script in your favourite Python console, IDLE or else, giv
 Run it by F5, information is printed into a python console or into tkinter console (output_window=True).</p>
 
 <h3>If using within Vapoursynth Editor:</h3>
--Use with output_window=True to actually see print-outs, because simple print('something') does not work while running a script in vsedit.<br>
--If you keep getting ModuleNotFoundError: No module named 'view'<br>
- put that view.py and output_window.py into your Python's site-packages directory</code></pre>
--you might include line to output your clip, even if not needed for preview:<br>
- clip.set_output()<br>
- -if everything fails, you can always use your favourite Python app where you can run your script
-
-
+Use with <code>output_window=True</code> to actually see print-outs, because simple <code>print('something')</code> does not work while running a script in vsedit.<br>
+If you keep getting ModuleNotFoundError: No module named 'view' put view.py and output_window.py into your Python's site-packages directory<br>
+You might include line to output your clip, even if not needed for preview: <code>clip.set_output()</code><br>
+If everything fails, you can always use your favourite Python app where you can run your script<br>
 
 
 <h3>Script examples:</h3>
