@@ -3,8 +3,8 @@ It is using openCV to put vapoursynth's RGB on screen.
 
 
 <pre><code>Preview(list of clips or clip[, int[] frames=None, int delay=None, str img_dir=None, str matrix_in_s=None,
-                          kernel='Point', int mod_x=2, int mod_y=2, bool ignore_subsampling = False,
-                          int() position = (60,60), int preview_width = None, int preview_height = None,
+                          str kernel='Point', int mod_x=2, int mod_y=2, bool ignore_subsampling = False,
+                          tuple position = (60,60), int preview_width = None, int preview_height = None,
                           bool output_window=False, bool fullscreen=False, bool play=False, bool slider=False ])</code></pre>
 
 
