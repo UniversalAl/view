@@ -221,7 +221,7 @@ Also, seeking could be dragging or freezing, it depends on video, clip's source 
 
 
 <h3>Keybindings:</h3>
-<code><pre>Check global variables WINDOWS_KEYMAP  and LINUX_KEYMAP respectivelly if neding some fixing.
+<code><pre>Check global variables WINDOWS_KEYMAP  and LINUX_KEYMAP.
 Not sure about Mac at all about correct keybindings, just have set it same as for Linux,
 so it might need corrections, if things do not work,see global DARWIN_KEYMAP and change keybindings apropriatelly.
 Active (selected/focused) opencv  window response to these keys on keyboard:
