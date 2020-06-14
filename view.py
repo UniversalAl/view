@@ -215,7 +215,7 @@ MOUSE LEFT CLICK and MOVE  initiates crop mode, selecting rectangle with mouse,
 'Home' go to first frame
 'End'  go to last frame
      Seeking is source plugin dependant so it could take a time to request a frame.
-'Q'  quit app, but if zoom or crop was applied, it just resets to original clip first
+'Q'  quit app
 'Esc' preview goes back to previous zoom or crop
 'I'  prints YUV or RGB values for pixel under mouse pointer in preview window
      printing is in this format:
