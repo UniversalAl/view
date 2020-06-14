@@ -1,5 +1,5 @@
 '''
-This is opencv module for Python/vapoursynth scripts that previews VideoNode (clip) within script itself by just running script.
+This is Python module for vapoursynth scripts that previews VideoNode (clip) within script itself by just running script.
 It is a pythonic solution to play or compare vapoursynth clips by using opencv module.
 '''
 
