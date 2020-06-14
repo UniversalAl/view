@@ -479,38 +479,9 @@ class Preview:
             elif self.frame < self.frames[0]:
                 self.play = 0
                 self.frame = self.frames[0]
-            if OS =='windows':
-                if cv2.getWindowProperty(self.title, cv2.WND_PROP_VISIBLE) < 1:   #windows needs this, canceling window clicking 'x'
-                    break
-            '''
-            if cv2.getWindowProperty(self.title, 1) < 0:
-                break
-
-                or
-                
-            if cv2.getWindowProperty(self.title, cv2.WND_PROP_VISIBLE) < 1:
+            if cv2.getWindowProperty(self.title, cv2.WND_PROP_VISIBLE) < 1:   #windows needs this, canceling window clicking 'x'
                  break
-                 
-            xPos, yPos, width, height = cv2.getWindowImageRect(self.title)
-               if xPos == -1: # if user closed window
-                break
-            '''
 
-        #clean up
-        while True:
-            try:
-                del self.clips_orig[-1]
-                del self.rgbs_orig[-1]
-                del self.rgbs[-1]            
-            except Exception:
-                break
-        del self.clips_orig
-        del self.rgbs_orig
-        del self.rgbs
-        gc.collect()
-        
-##        self.log('[Preview.show] exiting')
-##        self.log(80*'_'+ '\n')
         cv2.destroyAllWindows()
         
     def show_frame(self):
@@ -1877,6 +1848,6 @@ class Conversions:
                 
 if __name__ == '__main__':
 
-    file=r'video.mp4'
+    file='video.mp4'
     clip = core.ffms2.Source(file)
-    Preview([clip])
+    Preview([clip], output_window=True)
