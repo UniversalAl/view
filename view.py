@@ -479,7 +479,7 @@ class Preview:
             elif self.frame < self.frames[0]:
                 self.play = 0
                 self.frame = self.frames[0]
-            if cv2.getWindowProperty(self.title, cv2.WND_PROP_VISIBLE) < 1:   #windows needs this, canceling window clicking 'x'
+            if cv2.getWindowProperty(self.title, cv2.WND_PROP_VISIBLE) < 1:   #canceling window clicking 'x'
                  break
 
         cv2.destroyAllWindows()
