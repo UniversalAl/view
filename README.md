@@ -29,7 +29,7 @@ Status Bar is present if opencv is compiled with Qt library build though. But at
 But all sys.stdout are always printed into a tkinter window even if no Qt library is installed with opencv.<br>
 with arrow keys keybindings so that is why keybinding for frame forward move and back does not uses arrows on keyboard.<br><br>
 
-On windows 7  I used this build (without Qt Library):<br>
+On Windows  I used this build (without Qt Library):<br>
 <code>python -m pip install opencv-contrib-python</code><br><br>
 On Linux, Ubuntu 16.04 I used this build (installed with Qt library):
 <pre><code>sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
