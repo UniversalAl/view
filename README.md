@@ -49,7 +49,7 @@ Run it by F5, information is printed into a python console or into tkinter conso
  put that view.py and output_window.py into your Python's site-packages directory</code></pre>
 -you might include line to output your clip, even if not needed for preview:<br>
  clip.set_output()<br>
- -if everything failes, you can always use your favourite Python app where you can run your script
+ -if everything fails, you can always use your favourite Python app where you can run your script
 
 
 
