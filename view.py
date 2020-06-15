@@ -1850,4 +1850,4 @@ if __name__ == '__main__':
 
     file='video.mp4'
     clip = core.ffms2.Source(file)
-    Preview([clip], output_window=True)
+    Preview(clip)
