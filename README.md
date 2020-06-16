@@ -108,6 +108,7 @@ Preview(shades_of_gray)</code></pre>
 list of clips (vapoursynth VideoNodes)
 if there is only one clip passed, it could be passed as a simple clip (VideoNode).
 
+
 <b>list  frames</b>
 is a list with first frame and last frame+1,
 if not specified, default is all frames.
