@@ -228,7 +228,6 @@ Keys '1' to '9' and '0' to switch between clips to compare them if loading more 
            
 MOUSE LEFT DOUBLECLICK    zooms in 2x, centers on mouse position
 'Z' -      same as above, zooms in 2x as well, again centers on mouse position
-
 MOUSE LEFT CLICK and MOVE  initiates crop mode, selecting rectangle with mouse, confirmcrop  with ENTER KEY
            or with DOUBLECLICK inside of selected area or with RIGHT MOUSE CLICK
            while touching first anchor point, it snaps to to a pixel following subsumpling,
