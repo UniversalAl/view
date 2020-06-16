@@ -104,13 +104,17 @@ shades_of_gray = [ clip.std.Expr([f'x {dimming} -','','']) for dimming in range(
 Preview(shades_of_gray)</code></pre>
 
 <h3>Preview class arguments:</h3>
-<pre><code><b>list  frames</b>
+<pre><code><b>list  clips</b>
+list of clips (vapoursynth VideoNodes)
+if there is only one clip passed, it could be passed as a simple clip (VideoNode).
+
+<b>list  frames</b>
 is a list with first frame and last frame+1,
 if not specified, default is all frames.
 Same list as you'd make slicing in vapoursynth clip=clip[some frame:other frame]
 Seeking a frame is a source plugin dependant, it could take a time to seek n-th frame,
 it could take much longer than seeking subsequece frames, or it could fail, or proper seeking have to be specified
-as source plugin argument.<br>
+as source plugin argument.
                        
 <b>int  delay</b>
 is delay for playback in milliseconds between frames,
