@@ -229,8 +229,8 @@ Keys '1' to '9' and '0' to switch between clips to compare them if loading more 
 MOUSE LEFT DOUBLECLICK    zooms in 2x, centers on mouse position
 'Z' -      same as above, zooms in 2x as well, again centers on mouse position
 
-MOUSE LEFT CLICK and MOVE  initiates crop mode, selecting rectangle with mouse, confirm it with ANY KEY
-           or confirm it with RIGHT MOUSE CLICK
+MOUSE LEFT CLICK and MOVE  initiates crop mode, selecting rectangle with mouse, confirmcrop  with ENTER KEY
+           or with DOUBLECLICK inside of selected area or with RIGHT MOUSE CLICK
            while touching first anchor point, it snaps to to a pixel following subsumpling,
            also while drawing a rectangle , it snaps to mods (2,4,8 or 16), whatever is passed as argument
            default modes:  mod_x=2, mod_y=2
@@ -238,7 +238,8 @@ key 'Z' -  zooms 2x in as well, again using mouse to be a center if available
 key 'R' -  RESETs preview to original 1:1 clip on screen
 key 'I' -  prints YUV or RGB values for pixel under mouse pointer in preview window
            printing is in this format:
-           clip number, _PictType (I,B or P), frame number ,absolute pixel coordinates, original clip YUV or RGB values,  preview RGB values
+           clip number, _PictType (I,B or P), frame number ,absolute pixel coordinates, original clip YUV or RGB values,
+           preview RGB values
 key 'P'    prints all available frame properties (_PictType, _Matrix, _Primaries ...etc.)           
 key 'W' -  save PNG image, what you just preview and it will be saved on hardisk as 8bit PNG as 1:1, ingnoring zoom that you have on screen
 key 'E' -  save PNG image, what you just preview and it will be saved on hardisk as 8bit PNG, it will be saved as you see on screen, respecting zoom, pixel blocks
