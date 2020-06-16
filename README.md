@@ -84,8 +84,8 @@ Preview(clip, img_dir=r'F:\images', mod_x=1, mod_y=1, ignore_subsampling=True)
 import vapoursynth as vs
 from view import Preview
 clip = vs.core.lsmas.LibavSMASHSource('source.mp4')
-clip = core.std.SetFrameProp(clip, prop="_ColorRange", intval=1)
-clip1 = core.std.SetFrameProp(clip, prop="_ColorRange", intval=0)
+clip = vs.core.std.SetFrameProp(clip, prop="_ColorRange", intval=1)
+clip1 = vs.core.std.SetFrameProp(clip, prop="_ColorRange", intval=0)
 Preview([clip, clip1]) 
 #switch clips pressing keys '1' and '2' while playing, or zoom-in couple of times
 #and notice, the same YUV values, but different rgb values for those clips</code></pre>
