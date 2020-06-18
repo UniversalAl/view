@@ -1,5 +1,5 @@
 '''
-This is Python module for vapoursynth scripts that previews VideoNode (clip) within script itself by just running script.
+This is opencv module for Python/vapoursynth scripts that previews VideoNode (clip) within script itself by just running script.
 It is a pythonic solution to play or compare vapoursynth clips by using opencv module.
 '''
 
@@ -7,16 +7,18 @@ import os
 import sys
 import platform
 import timeit
-import gc
 
 
 import vapoursynth as vs
 from vapoursynth import core
 import numpy as np
 import cv2
-from distutils.version import StrictVersion
-if StrictVersion(cv2.__version__) < StrictVersion('3.4.1'):
-    raise Exception('\n'+  f'openCV version is {cv2.__version__}, it needs to be at least 3.4.1')
+try:
+    from distutils.version import StrictVersion
+    if StrictVersion(cv2.__version__) < StrictVersion('3.4.1'):
+        raise Exception('\n'+  f'openCV version is {cv2.__version__}, it needs to be at least 3.4.1')
+except ImportError:
+    pass
         
 #optional for windows or linux but needed for darwin platform to figure out free RAM        
 try:
@@ -198,14 +200,14 @@ PROPS = {
 ERROR_FILENAME_LOG = 'error_NO_output_window.txt'
 
 HOTKEYS_HELP ='''KEYBINDING:
-'1' to '9' to switch between clips to compare them if loading more clips.
-           So there is max 9 clips. But technically,
+'1' to '9' or '0' to switch between clips to compare them if loading more clips.
+           So there is max 10 clips. But technically,
            it could be more if keybinding is adjusted.
 MOUSE LEFT DOUBLECLICK  zooms in 2x, centers on mouse position
 'Z'  zooms in 2x as well, again centers on mouse position
 
 MOUSE LEFT CLICK and MOVE  initiates crop mode, selecting rectangle with mouse,
-     confirm selection  with ANY KEY or with RIGHT MOUSE CLICK,
+     confirm selection  with ENTER KEY or doubleclicking within selection or with RIGHT MOUSE CLICK,
      while touching first point, it snaps to to a pixel following subsumpling (max from loaded clips),
      also while drawing a rectangle , it snaps to mods passed as argument, (recomended values 2,4,8 or 16)
      default mods:  mod_x=2, mod_y=2 
@@ -215,7 +217,7 @@ MOUSE LEFT CLICK and MOVE  initiates crop mode, selecting rectangle with mouse,
 'Home' go to first frame
 'End'  go to last frame
      Seeking is source plugin dependant so it could take a time to request a frame.
-'Q'  quit app
+'Q'  quit app, but if zoom or crop was applied, it just resets to original clip first
 'Esc' preview goes back to previous zoom or crop
 'I'  prints YUV or RGB values for pixel under mouse pointer in preview window
      printing is in this format:
@@ -1850,4 +1852,4 @@ if __name__ == '__main__':
 
     file='video.mp4'
     clip = core.ffms2.Source(file)
-    Preview(clip)
+    Preview([clip])
