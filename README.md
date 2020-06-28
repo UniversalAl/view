@@ -40,14 +40,14 @@ sudo apt-get install python3-dev
 sudo apt install python3-opencv</code></pre>
 
 <p>Put view.py and output_window.py into Pythons site-packages directory.
-Make some Vapoursynth script in your favourite Python console, IDLE or else, give it .py extension.
-Run it by F5, information is printed into a python console or into tkinter console (output_window=True).</p>
+Make some Vapoursynth script in your favourite Python editor, IDLE or else, give it .py extension.
+Run it your script, information is printed into a python console (output_window=False, which is default) or into tkinter pop up window (output_window=True).</p>
 
 <h3>If using within Vapoursynth Editor:</h3>
 Use with <code>output_window=True</code> to actually see print-outs, because simple <code>print('something')</code> does not work while running a script in vsedit.<br>
 If you keep getting ModuleNotFoundError: No module named 'view' put view.py and output_window.py into your Python's site-packages directory.<br>
 You might include line to output your clip, even if not needed for preview: <code>clip.set_output()</code><br>
-If everything fails, you can always use your other Python app or IDLE where you can run your script.<br>
+If everything fails, you can always use your Python editor or IDLE where you can run your script. Using Preview() you do not need vapoursynth editor<br>
 
 
 <h3>Script examples:</h3>
@@ -93,11 +93,15 @@ Preview([clip, clip1])
 
 <pre><code>#Creating 10 clips with different shades of gray and passing them to Preview
 import vapoursynth as vs
-from view import Preview               
-clip = vs.core.std.BlankClip(width=1280, height=720, format=vs.YUV420P10, color=[960,512,512])
-bits = clip.format.bits_per_sample
-max  = 2**bits
-step = max//10
+from view import Preview
+
+DEPTH = 13   #8 to 16
+
+format = core.register_format(vs.ColorFamily.YUV, vs.INTEGER, DEPTH, 1, 1).id
+max  = 2**DEPTH
+step = max//9
+color= [max-1, max//2, max//2]
+clip = vs.core.std.BlankClip(width=1280, height=720, format=format, color=color)               
 shades_of_gray = [ clip.std.Expr([f'x {dimming} -','','']) for dimming in range(0, max, step) ]
 #in Preview window pressing keys '1' to '9' or '0' to select a clip
 #press "I" with mouse over window to read pixel values
