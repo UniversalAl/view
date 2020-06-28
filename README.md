@@ -97,7 +97,7 @@ from view import Preview
 
 DEPTH = 10   #8 to 16
 
-format = core.register_format(vs.ColorFamily.YUV, vs.INTEGER, DEPTH, 1, 1).id
+format = vs.core.register_format(vs.ColorFamily.YUV, vs.INTEGER, DEPTH, 1, 1).id
 max  = 2**DEPTH
 step = max//9
 color= [max-1, max//2, max//2]
