@@ -100,7 +100,7 @@ DEPTH = 10   #8 to 16
 format = vs.core.register_format(vs.ColorFamily.YUV, vs.INTEGER, DEPTH, 1, 1).id
 max  = 2**DEPTH
 step = max//9
-color= [max-1, max//2, max//2]
+color= (max-1, max//2, max//2)
 clip = vs.core.std.BlankClip(width=1280, height=720, format=format, color=color)               
 shades_of_gray = [ clip.std.Expr([f'x {dimming} -','','']) for dimming in range(0, max, step) ]
 #in Preview window pressing keys '1' to '9' or '0' to select a clip
