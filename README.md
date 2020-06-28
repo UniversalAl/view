@@ -95,7 +95,7 @@ Preview([clip, clip1])
 import vapoursynth as vs
 from view import Preview
 
-DEPTH = 13   #8 to 16
+DEPTH = 10   #8 to 16
 
 format = core.register_format(vs.ColorFamily.YUV, vs.INTEGER, DEPTH, 1, 1).id
 max  = 2**DEPTH
