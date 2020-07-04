@@ -486,19 +486,25 @@ class Preview:
                             j=self.i
                         
                 if self.close:
-                        break                                              #exiting loop and app        
-            
-            if self.play : self.frame += 1
-            if self.frame >= self.frames[1]:
-                self.play  = 0
-                self.frame = self.frames[1]-1
-            elif self.frame < self.frames[0]:
-                self.play = 0
-                self.frame = self.frames[0]
+                        break                                              #exiting loop and app
+                        
+            self.frame = self.update_frame(self.frame)
+
             if cv2.getWindowProperty(self.title, cv2.WND_PROP_VISIBLE) < 1:   #canceling window clicking 'x'
                  break
 
         cv2.destroyAllWindows()
+        
+    def update_frame(self, f):    
+        if self.play :
+            f += 1
+        if f >= self.frames[1]:
+            self.play  = 0
+            f = self.frames[1]-1
+        elif f < self.frames[0]:
+            self.play = 0
+            f = self.frames[0]
+        return f
         
     def show_frame(self):
         '''
