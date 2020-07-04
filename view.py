@@ -1137,9 +1137,10 @@ class Preview:
         self.y2 = self.y1 + h
         self.width  = w
         self.height = h
+        self.left, self.top = self.get_absolute_offsets(self.x1, self.y1)
         
         #cropping
-        self.crop_to_new(self.width, self.height, *self.get_absolute_offsets(self.x1, self.y1))
+        self.crop_to_new(self.width, self.height, self.left, self.top)
 
         
     def pixel_info(self):
