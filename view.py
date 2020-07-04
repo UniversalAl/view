@@ -234,6 +234,15 @@ MOUSE LEFT CLICK and MOVE  initiates crop mode, selecting rectangle with mouse,
      you could experiance conciderable delay and freeze
 'F'  Fullscreen on/off switch
 'H'  help, prints this KEYBINDING text
+
+During cropping and just before confirming that crop,
+any selected object is defined by clicking on a 'corner' or 'line' or 'all' (clicking within selected rectangle)
+So selected rentagle could be manualy re-defined by moving that object up, down, lef or right one step
+
+'Y'  selected object to move step up 
+'N'  selected object to move step down
+'G'  selected object to move step left
+'J'  selected object to  move step right
 '''
 
 
@@ -397,6 +406,11 @@ class Preview:
         if self.play:    self.play  = 1                 # make bint from bool
         else:            self.play  = 0
         self.previewData_reset()                        #makes first stored crop data (width, height, left, top)
+        
+        self.width  = self.rgbs_orig[self.i].width
+        self.height = self.rgbs_orig[self.i].height
+        self.left   = 0
+        self.top    = 0
         
         #mouseAction() properties
         self.ix, self.iy = (-1 , -1)     #assuming mouse off preview area so no readings yet
