@@ -432,7 +432,7 @@ class Preview:
         text=''
         for i , rgb in enumerate(self.rgbs):
             text +='clip{} {}    '.format(i+1, self.clips_orig[i].format.name)
-        self.clip_KEYMAP = CLIP_KEYMAP[:len(self.rgbs)]
+        clip_KEYMAP = CLIP_KEYMAP[:len(self.rgbs)]
         
         self.title = 'VideoNodes:   {}'.format(text)
         self.build_window(self.title, self.mouseAction)
@@ -474,7 +474,7 @@ class Preview:
                     getattr(self, KEYMAP[key])()                           #execute functions for hotkeys
                 except KeyError:             
                     try:
-                        self.i = self.clip_KEYMAP.index(key)               #if key was pressed that suppose to change clips, change index for clips
+                        self.i = clip_KEYMAP.index(key)               #if key was pressed that suppose to change clips, change index for clips
                     except ValueError:
                         pass
                     else:
