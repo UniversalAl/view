@@ -30,8 +30,9 @@ except ImportError:
 RESPECT_X_SUBSAMPLING = True                       #leave both True if wanting snapping to legit cropping values for Vapoursynth based on clip subsampling
 RESPECT_Y_SUBSAMPLING = True                       #user can override these with:  Preview([clip], ignore_subsampling = True)
 
-              #[(ord code,clip index), (ord code,clip index) ....]
-CLIP_KEYMAP = [(49,0),(50,1),(51,2),(52,3),(53,4),(54,5),(55,6),(56,7),(57,8),(48,9)]     #assigning keys '1','2','3',...'9', '0' to rgb clip indexes 0,1,2,..., 8, 9
+                                                   #assigning keys '1','2','3',...'9', '0' to rgb clip indexes 0,1,2,..., 8, 9
+CLIP_KEYMAP = [ ord('1'), ord('2'), ord('3'), ord('4'), ord('5'), ord('6'), ord('7'), ord('8') ,ord('9'), ord('0') ]
+
 
 WINDOWS_KEYMAP =  {
             
@@ -429,13 +430,10 @@ class Preview:
           
         #opencv window
         text=''
-        CLIP_KEYMAP_rgbs = {}            #new KEYMAP, reducing dictionary based on how many actual rgb clips there is
         for i , rgb in enumerate(self.rgbs):
             text +='clip{} {}    '.format(i+1, self.clips_orig[i].format.name)
-            try:
-                CLIP_KEYMAP_rgbs[CLIP_KEYMAP[i][0]] = CLIP_KEYMAP[i][1]
-            except:
-                pass
+        self.clip_KEYMAP = CLIP_KEYMAP[:len(self.rgbs)]
+        
         self.title = 'VideoNodes:   {}'.format(text)
         self.build_window(self.title, self.mouseAction)
         self.log('OpenCV version: ' + cv2.__version__)
@@ -476,8 +474,8 @@ class Preview:
                     getattr(self, KEYMAP[key])()                           #execute functions for hotkeys
                 except KeyError:             
                     try:
-                        self.i = CLIP_KEYMAP_rgbs[key]                     #no function key pressed, try change clip index key
-                    except KeyError:
+                        self.i = self.clip_KEYMAP.index(key)               #if key was pressed that suppose to change clips, change index for clips
+                    except ValueError:
                         pass
                     else:
                         #print this only one time
