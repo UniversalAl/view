@@ -1544,6 +1544,7 @@ class Preview:
             else:
                 del self.previewData[-1]
                 self.print_info(self.cropping_line_text(width, height, left, top))
+                self.width, self.height, self.left, self.top = width, height, left, top
             
             
             #self.redraw_window()
