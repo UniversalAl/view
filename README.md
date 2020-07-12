@@ -72,6 +72,33 @@ p = Preview(clip)  #and cancel preview window while in desired crop selection
 cropped_clip = clip.std.CropAbs(width=p.width, height=p.height, left=p.left, top=p.top)
 Preview(cropped_clip)</code></pre>
 
+<pre><code>
+#comparing different arguments for functions 
+from vapoursynth import core
+import vapoursynth as vs
+import  havsfunc
+from view import Preview 
+clip = core.ffms2.Source('NTSC_source.avi')
+clip = clip.resize.Point(format=vs.YUV420P8) 
+presets =  [
+             dict(Preset='medium', TFF=False, EZDenoise=2.0, DenoiseMC=True , Denoiser ='fft3df'),
+             dict(Preset='medium', TFF=False)
+           ]
+Preview( [ havsfunc.QTGMC(clip, **preset) for preset in presets ] )
+</code></pre>
+
+<pre><code>
+#other example of comparing different arguments for functions
+from vapoursynth import core
+import vapoursynth as vs
+import  havsfunc
+from view import Preview 
+clip = core.ffms2.Source('NTSC_source.avi')
+clip = clip.resize.Bicubic(format=vs.YUV420P8) 
+presets = ['placebo', 'very slow', 'slower', 'slow', 'medium', 'fast', 'faster', 'very fast', 'super fast', 'ultra fast', 'draft']
+Preview( [ havsfunc.QTGMC(clip, Preset=preset, TFF=False) for preset in presets ] )
+</code></pre>
+
 <pre><code>#saving cropped PNG's to disk with no subsampling restraines or mods:
 import vapoursynth as vs
 from view import Preview
