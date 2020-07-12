@@ -99,6 +99,17 @@ presets = ['placebo', 'very slow', 'slower', 'slow', 'medium', 'fast', 'faster',
 Preview( [ havsfunc.QTGMC(clip, Preset=preset, TFF=False) for preset in presets ] )
 </code></pre>
 
+<pre><code>
+#comparing different attributes (not arguments)
+from vapoursynth import core
+import vapoursynth as vs
+import  havsfunc
+from view import Preview 
+clip = core.ffms2.Source(r'D:\Python\ENCODER_12\red.avi')
+presets = ['Point', 'Bicubic', 'Spline36', 'Lanczos']
+Preview( [ getattr(clip.resize, preset)(format=vs.YUV420P8) for preset in presets ] )
+</code></pre>
+
 <pre><code>#saving cropped PNG's to disk with no subsampling restraines or mods:
 import vapoursynth as vs
 from view import Preview
