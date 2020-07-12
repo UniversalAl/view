@@ -105,9 +105,9 @@ from vapoursynth import core
 import vapoursynth as vs
 import  havsfunc
 from view import Preview 
-clip = core.ffms2.Source(r'D:\Python\ENCODER_12\red.avi')
+clip = core.ffms2.Source('NTSC_source.avi')
 presets = ['Point', 'Bicubic', 'Spline36', 'Lanczos']
-Preview( [ getattr(clip.resize, preset)(format=vs.YUV420P8) for preset in presets ] )
+Preview( [ getattr(clip.resize, preset)(format=vs.YUV420P8) for preset in presets ] ) #to change it for 420 (or 422) for QTGMC and comparing those kernels
 </code></pre>
 
 <pre><code>#saving cropped PNG's to disk with no subsampling restraines or mods:
