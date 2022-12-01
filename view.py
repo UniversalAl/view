@@ -26,7 +26,11 @@ try:
 except ImportError:
     pass
 
-
+try:
+    isAPI4 = vs.__api_version__.api_major >= 4
+except AttributeError:
+    isAPI4 = False
+    
 RESPECT_X_SUBSAMPLING = True                       #leave both True if wanting snapping to legit cropping values for Vapoursynth based on clip subsampling
 RESPECT_Y_SUBSAMPLING = True                       #user can override these with:  Preview([clip], ignore_subsampling = True)
 
@@ -514,7 +518,8 @@ class Preview:
             f = self.rgbs[self.i].get_frame(self.frame)
         except:       
             f = self.error_frame()                          
-        self.img = np.dstack([np.array(f.get_read_array(p), copy=False) for p in [2,1,0]])
+        if isAPI4: self.img = np.dstack([np.array(f[p], copy=False) for p in [2,1,0]])
+        else:      self.img = np.dstack([np.array(f.get_read_array(p), copy=False) for p in [2,1,0]])
         if self.isCropping and self.x1 is not None:
             img = self.img_and_selection(self.img, (self.x1,self.y1,self.x2,self.y2),self.color)
             if self.play: self.delay_it()
