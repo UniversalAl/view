@@ -13,12 +13,11 @@ import vapoursynth as vs
 from vapoursynth import core
 import numpy as np
 import cv2
+imported_cv2_ver = tuple(map(int, cv2.__version__.split('.')))[0:3]
 try:
-    from distutils.version import StrictVersion
-    if StrictVersion(cv2.__version__) < StrictVersion('3.4.1'):
-        raise Exception('\n'+  f'openCV version is {cv2.__version__}, it needs to be at least 3.4.1')
-except ImportError:
-    pass
+    assert imported_cv2_ver >= (3,4,1)
+except AssertionError:
+    raise ImportError(f'openCV version is {cv2.__version__}, it needs to be at least 3.4.1')
         
 #optional for windows or linux but needed for darwin platform to figure out free RAM        
 try:
